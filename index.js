@@ -8,14 +8,14 @@ app.use(express.static(__dirname + '/public'))
 app.get('/', function(request, response) {
   exec('lsusb', function(error, stdout, stderr) {
     if (error) {
-      response.send('error: ' + JSON.stringify(error))
+      response.send('lsusb error: ' + JSON.stringify(error))
       return
     }
     if (stderr) {
-      response.send('error: ' + stderr)
+      response.send('lsusb error: ' + stderr)
       return
     }
-    response.send("<code><pre>" + stdout + "</pre></code>")
+    response.send("lsusb output: <code><pre>" + stdout + "</pre></code>")
   });
 })
 
