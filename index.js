@@ -6,7 +6,7 @@ app.set('port', (process.env.PORT || 5000))
 app.use(express.static(__dirname + '/public'))
 
 app.get('/', function(request, response) {
-  exec('/usr/bin/lsusb', function(error, stdout, stderr) {
+  exec('lsusb', function(error, stdout, stderr) {
     if (error) {
       response.send('lsusb error: ' + JSON.stringify(error))
       return
